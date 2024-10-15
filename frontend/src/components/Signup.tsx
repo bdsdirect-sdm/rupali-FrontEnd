@@ -100,7 +100,6 @@ const Signup: React.FC = () => {
             }
         }
 
-      
         console.log('Form Data to be submitted:', Array.from(data.entries()));
 
         try {
@@ -114,133 +113,119 @@ const Signup: React.FC = () => {
     };
 
     return (
-        <div className="signup-container">
-            <h2 className="text-center">Job Portal</h2>
-            <form onSubmit={handleSubmit} className="signup-form shadow-lg p-4 rounded">
-                <div className="mb-3">
-                    <label>
-                        FirstName
-                    </label>
-                    <input
-                        name="firstName"
-                        onChange={handleChange}
-                        required
-                        placeholder="First Name"
-                        className="form-control form-input"
-                    />
-                </div>
-                <div className="mb-3">
-                    <label>
-                        LastName
-                    </label>
-                    <input
-                        name="lastName"
-                        onChange={handleChange}
-                        required
-                        placeholder="Last Name"
-                        className="form-control form-input"
-                    />
-                </div>
-                <div className="mb-3">
-                <label>
-                        Email
-                    </label>
-                    <input
-                        name="email"
-                        type="email"
-                        onChange={handleChange}
-                        required
-                        placeholder="Email"
-                        className="form-control form-input"
-                    />
-                </div>
-                <div className="mb-3">
-                <label>
-                        Phone No
-                    </label>
-                    <input
-                        name="phone"
-                        type="tel"
-                        onChange={handleChange}
-                        required
-                        placeholder="Phone"
-                        className="form-control form-input"
-                    />
-                </div>
-                <div className="mb-3">
-               
-                    <label className="form-label">Gender:</label>
-                    <div>
-                        <label className="me-3">
-                            <input type="radio" name="gender" value="Male" onChange={handleChange} required /> Male
-                        </label>
-                        <label>
-                            <input type="radio" name="gender" value="Female" onChange={handleChange} required /> Female
-                        </label>
+        <div className="signup-container d-flex align-items-center justify-content-center min-vh-100">
+            <div className="signup-form shadow-lg p-4 rounded">
+                <h2 className="text-center mb-4">Job Portal</h2>
+                <form onSubmit={handleSubmit}>
+                    <div className="mb-3">
+                        <label>First Name</label>
+                        <input
+                            name="firstName"
+                            onChange={handleChange}
+                            required
+                            placeholder="First Name"
+                            className="form-control form-input"
+                        />
                     </div>
-                </div>
-                <div className="mb-3">
-                    Select 
-                    <label className="form-label">User Type:</label>
-                    <select name="userType" onChange={handleChange} className="form-select form-input">
-                        <option value="Job Seeker">Job Seeker</option>
-                        <option value="Agency">Agency</option>
-                    </select>
-                </div>
-                <div className="mb-3">
-                <label>
-                        Select 
-                    </label>
-                    <label className="form-label">Hobbies:</label>
-                    <div>
-                        <label className="me-3">
-                            <input type="checkbox" value="Sports" onChange={handleChange} /> Sports
-                        </label>
-                        <label className="me-3">
-                            <input type="checkbox" value="Dance" onChange={handleChange} /> Dance
-                        </label>
-                        <label className="me-3">
-                            <input type="checkbox" value="Reading" onChange={handleChange} /> Reading
-                        </label>
-                        <label>
-                            <input type="checkbox" value="Singing" onChange={handleChange} /> Singing
-                        </label>
+                    <div className="mb-3">
+                        <label>Last Name</label>
+                        <input
+                            name="lastName"
+                            onChange={handleChange}
+                            required
+                            placeholder="Last Name"
+                            className="form-control form-input"
+                        />
                     </div>
-                </div>
-                <div className="mb-3">
-                <label>
-                        Profile Image
-                    </label>
-                    <input type="file" name="profileImage" onChange={handleChange} accept=".png, .jpg, .jpeg" className="form-control form-input" />
-                </div>
-                {formData.userType === 'Job Seeker' && (
-                    <>
-                        <div className="mb-3">
-                            <label>
-                                Resume
+                    <div className="mb-3">
+                        <label>Email</label>
+                        <input
+                            name="email"
+                            type="email"
+                            onChange={handleChange}
+                            required
+                            placeholder="Email"
+                            className="form-control form-input"
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <label>Phone No</label>
+                        <input
+                            name="phone"
+                            type="tel"
+                            onChange={handleChange}
+                            required
+                            placeholder="Phone"
+                            className="form-control form-input"
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label">Gender:</label>
+                        <div>
+                            <label className="me-3">
+                                <input type="radio" name="gender" value="Male" onChange={handleChange} required /> Male
                             </label>
-                            <input type="file" name="resume" onChange={handleChange} accept=".docx, .pdf" className="form-control form-input" />
+                            <label>
+                                <input type="radio" name="gender" value="Female" onChange={handleChange} required /> Female
+                            </label>
                         </div>
-                        <div className="mb-3">
-                            <label htmlFor="agency-select">Select Agency:</label>
-                            <select id="agency-select" value={selectedAgency} onChange={handleAgencyChange} className="form-select form-input">
-                                <option value="">--Select an Agency--</option>
-                                {agencies.map((agency) => (
-                                    <option key={agency.id} value={agency.id}>
-                                        {agency.firstName} {agency.lastName}
-                                    </option>
-                                ))}
-                            </select>
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label">User Type:</label>
+                        <select name="userType" onChange={handleChange} className="form-select form-input">
+                            <option value="Job Seeker">Job Seeker</option>
+                            <option value="Agency">Agency</option>
+                        </select>
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label">Hobbies:</label>
+                        <div>
+                            <label className="me-3">
+                                <input type="checkbox" value="Sports" onChange={handleChange} /> Sports
+                            </label>
+                            <label className="me-3">
+                                <input type="checkbox" value="Dance" onChange={handleChange} /> Dance
+                            </label>
+                            <label className="me-3">
+                                <input type="checkbox" value="Reading" onChange={handleChange} /> Reading
+                            </label>
+                            <label>
+                                <input type="checkbox" value="Singing" onChange={handleChange} /> Singing
+                            </label>
                         </div>
-                    </>
-                )}
-                <button type="submit" className="btn btn-primary w-100">Sign Up</button>
-                <div className="mt-3 text-center">
-                    <a href="/login">Already have an account? Login</a>
-                </div>
-            </form>
+                    </div>
+                    <div className="mb-3">
+                        <label>Profile Image</label>
+                        <input type="file" name="profileImage" onChange={handleChange} accept=".png, .jpg, .jpeg" className="form-control form-input" />
+                    </div>
+                    {formData.userType === 'Job Seeker' && (
+                        <>
+                            <div className="mb-3">
+                                <label>Resume</label>
+                                <input type="file" name="resume" onChange={handleChange} accept=".docx, .pdf" className="form-control form-input" />
+                            </div>
+                            <div className="mb-3">
+                                <label htmlFor="agency-select">Select Agency:</label>
+                                <select id="agency-select" value={selectedAgency} onChange={handleAgencyChange} className="form-select form-input">
+                                    <option value="">--Select an Agency--</option>
+                                    {agencies.map((agency) => (
+                                        <option key={agency.id} value={agency.id}>
+                                            {agency.firstName} {agency.lastName}
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
+                        </>
+                    )}
+                    <button type="submit" className="btn btn-primary w-100">Sign Up</button>
+                    <div className="mt-3 text-center">
+                        {/* <a href="/login">Already have an account? Login</a> */}
+                    </div>
+                </form>
+            </div>
         </div>
     );
 };
 
 export default Signup;
+
